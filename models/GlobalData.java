@@ -44,6 +44,10 @@ public class GlobalData {
         CartController.addToCart(gambar);
     }
 
+    public static void removeFromCart(Gambar gambar) {
+        CartController.removeFromCart(gambar);
+    }
+
     public static void refreshCart(){
         CartPage.loadCartPage();
     }

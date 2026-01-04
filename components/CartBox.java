@@ -34,6 +34,10 @@ public class CartBox extends JPanel{
             panelEastBox.setBackground(Color.decode("#d9d9d9"));
             panelEastBox.setLayout(new GridBagLayout());
                 JButton removeBtn = new JButton("remove");
+                removeBtn.addActionListener(e -> {
+                    item.setCart(false);
+                    GD.removeFromCart(item);
+                });
             panelEastBox.add(removeBtn);
             panelEastBox.setPreferredSize(new Dimension(GlobalData.W * 1/10, HBOX));
         this.add(panelWestBox, BorderLayout.CENTER);

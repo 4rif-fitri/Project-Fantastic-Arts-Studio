@@ -11,6 +11,13 @@ public class CartController {
         System.out.println("Received item of RM " + item.getPrice() + " at CartController");
     }
     
+    public static void removeFromCart(Gambar item) {
+        if (shoppingCart.remove(item)) { // remove() mengembalikan true jika item berjaya dibuang
+            System.out.println("Removed item of RM " + item.getPrice() + " from CartController");
+        } else {
+            System.out.println("Item not found in cart.");
+        }
+    }
 
     public static ArrayList<Gambar> getCart(){
         return shoppingCart;
