@@ -49,7 +49,15 @@ public class CartPage extends JPanel {
                 panelCheckOut.add(totalPrice);
                 panelCheckOut.add(buttonCheckOut);
 
-                
+                buttonCheckOut.addActionListener(e -> {
+                    StringBuilder text = new StringBuilder();
+                    for (Gambar item : GlobalData.cartController.getCart()) {
+                        text.append(" - ").append(item.getName()).append("\r\n");
+                    }
+                    text.append("\r\n").append(" - ").append("Total RM " + getCartTotal()).append("\r\n");
+
+                    GD.sendWhatsApp(text.toString());
+                });
 
             this.add(scroll_container, BorderLayout.CENTER);
             this.add(panelCheckOut, BorderLayout.SOUTH);

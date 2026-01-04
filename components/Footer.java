@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import models.Cart;
 
 public class Footer extends JPanel {
 	public Footer(String location, CardLayout cardLayout, JPanel cardPanel) {
@@ -19,9 +18,6 @@ public class Footer extends JPanel {
 		JButton btn_cart = new JButton("Cart");
 		this.add(btn_cart);
 
-		JButton pm = new JButton("Massage");
-		this.add(pm);
-
 		btn_back.addActionListener(e -> {
 			cardLayout.show(cardPanel, location);
 		});
@@ -30,9 +26,5 @@ public class Footer extends JPanel {
 			// cardLayout.show(cardPanel, location);
 		});
 
-		Cart cart = new Cart();
-		pm.addActionListener(e -> {
-			cart.sendWhatsApp();
-		});
 	}
 }
