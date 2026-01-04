@@ -36,7 +36,7 @@ public class Single extends JFrame {
 		panelGambar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		panelGambar.setBackground(Color.decode("#b02323"));
 
-		JLabel gambar = new JLabel();
+		JButton gambar = new JButton();
 		gambar.setIcon(new ImageIcon(getClass().getResource(item.getUrl())));
 		//label.setText("pizza");
 		gambar.setPreferredSize(new Dimension(WGAM, HGAM));
