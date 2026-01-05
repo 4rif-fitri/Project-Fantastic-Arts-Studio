@@ -16,6 +16,7 @@ import models.*;
 public class GallaryAll extends JPanel {
 	public final static int GAP = 48;
 	JPanel content = new JPanel();
+	JScrollPane scroll_conteiner = new JScrollPane(content);
 	
 	public GallaryAll(CardLayout cardLayout, JPanel cardPanel, GambarController data) {
 		this.setPreferredSize(new Dimension(GlobalData.W, GlobalData.H));
@@ -34,7 +35,6 @@ public class GallaryAll extends JPanel {
 			if (!item.isCart()) content.add(new OnePicture(item));
 		}
 		// bagi main container ade scroll
-		JScrollPane scroll_conteiner = new JScrollPane(content);
 		scroll_conteiner.getVerticalScrollBar().setUnitIncrement(20);
 
 		// layout setting
@@ -45,10 +45,11 @@ public class GallaryAll extends JPanel {
 
 	}
 
-	public void loadAll(){
+	public void loadGallaryPage(){
 		content.removeAll();
 		for (Gambar item : GlobalData.gambarController.getAll()) {
 			if (!item.isCart()) content.add(new OnePicture(item));
 		}
+		content.revalidate();
 	}
 }

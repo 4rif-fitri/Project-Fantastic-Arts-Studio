@@ -79,9 +79,10 @@ public class Single extends JFrame {
 				JButton addToCart = new JButton("Add To Cart");
 				addToCart.addActionListener(e->{
 					// tambah validation sikit
+					addToCart.setEnabled(false);
 					item.setCart(true);
+					GlobalData.refreshGallary();
 					CartController.addToCart(item);
-					GD.refreshGallaryAll();
 				});
 			panel3.add(price);
 			panel3.add(addToCart);

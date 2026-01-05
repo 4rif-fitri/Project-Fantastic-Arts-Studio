@@ -80,11 +80,11 @@ public class CartPage extends JPanel {
         }else{   
             for (Gambar item : CartController.getCart()) {
                 content.add(new CartBox(item));
-                
             }
         }
         totalPrice.setText("RM " + getCartTotal());
-
+        content.validate();
+        content.repaint();
     }
     
     private static double getCartTotal(){

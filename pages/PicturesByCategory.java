@@ -18,6 +18,7 @@ public class PicturesByCategory extends JPanel {
 	JPanel content;
 	GambarController data;
 	JScrollPane scroll_conteiner;
+	String selectedCategory = "";
 	public final static int gap = 48;
 
 	public PicturesByCategory(GambarController data, GlobalData globalData) {
@@ -47,33 +48,15 @@ public class PicturesByCategory extends JPanel {
 
 	}
 
-	private void clearIni(){
-		content.removeAll();
-		this.add(new NavbarCatagory(GD.cardLayout, GD.cardPanel), BorderLayout.NORTH);
-		this.add(scroll_conteiner, BorderLayout.CENTER);
-		this.add(new Footer("GALLARY", GD.cardLayout, GD.cardPanel), BorderLayout.SOUTH);
+	public void setCategory(String selectedCat){
+		this.selectedCategory = selectedCat;
 	}
 
-	public void loadSelectedCategory(String selectedCat){
-		clearIni();
-		for (Gambar item : data.getArtByCat(selectedCat)){
+	public void loadCategoryPage(){
+		content.removeAll();
+		for (Gambar item : data.getArtByCat(selectedCategory)){
 			if (!item.isCart()) content.add(new OnePicture(item));
 		}
-		
-		// if (selectedCat.equals("Painting")) {
-		// 	for (Gambar item : data.getPainting()) {
-		// 	content.add(new OnePicture(item));
-		// 	}
-		// }
-		// else if(selectedCat.equals("Drawing")){
-		// 	for (Gambar item : data.getDrawing()) {
-		// 		content.add(new OnePicture(item));
-		// 	}
-		// }
-		// else if(selectedCat.equals("NFT Art")){
-		// 	for (Gambar item : data.getNFTArt()) {
-		// 		content.add(new OnePicture(item));
-		// 	}
-		// }
+		content.revalidate();
 	}
 }

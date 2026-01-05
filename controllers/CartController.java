@@ -13,6 +13,7 @@ public class CartController {
     
     public static void removeFromCart(Gambar item) {
         if (shoppingCart.remove(item)) { // remove() mengembalikan true jika item berjaya dibuang
+            item.setCart(false);
             System.out.println("Removed item of RM " + item.getPrice() + " from CartController");
         } else {
             System.out.println("Item not found in cart.");

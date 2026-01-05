@@ -18,8 +18,8 @@ public class GlobalData {
     public static GallaryAll gallaryAll;
     public static Home home;
     public static PicturesByCategory picturesByCategory;
-    public CardLayout cardLayout;
-    public JPanel cardPanel;
+    public static CardLayout cardLayout;
+    public static JPanel cardPanel;
     
     public String[] categories = {"Painting", "Drawing", "Sculpture", "Digital Art", "Photography", "Abstract Art", "Traditional Art", "NFT Art", "Pop Art"};
 
@@ -39,7 +39,8 @@ public class GlobalData {
     }
 
     public void sendSelectedCategory(String selectedCategory){
-        picturesByCategory.loadSelectedCategory(selectedCategory);
+        picturesByCategory.setCategory(selectedCategory);
+        picturesByCategory.loadCategoryPage();
     }
 
     public static void sendToCart(Gambar gambar){
@@ -55,7 +56,15 @@ public class GlobalData {
     }
 
     public static void refreshGallaryAll(){
-        gallaryAll.loadAll();
+        gallaryAll.loadGallaryPage();
+        System.out.println("refreshing gallaryall");
+    }
+
+    public static void refreshGallary(){
+        gallaryAll.loadGallaryPage();
+        System.out.println("refreshing gallaryall");
+        picturesByCategory.loadCategoryPage();
+        System.out.println("refreshing categroe");
     }
 
     public static void sendWhatsApp(String text) {
