@@ -37,6 +37,7 @@ public class CartBox extends JPanel{
                 removeBtn.addActionListener(e -> {
                     item.setCart(false);
                     GD.removeFromCart(item);
+                    GD.refreshCart();
                 });
             panelEastBox.add(removeBtn);
             panelEastBox.setPreferredSize(new Dimension(GlobalData.W * 1/10, HBOX));
