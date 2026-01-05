@@ -22,4 +22,8 @@ public class CartController {
     public static ArrayList<Gambar> getCart(){
         return shoppingCart;
     }
+
+    public static boolean isEmpty(){
+        return shoppingCart.isEmpty();
+    }
 }

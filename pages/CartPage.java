@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -67,9 +69,20 @@ public class CartPage extends JPanel {
 
     public static void loadCartPage(){
         content.removeAll();
-        for (Gambar item : CartController.getCart()) {
-			content.add(new CartBox(item));
-		}
+
+        if (CartController.isEmpty()) {
+            JPanel asd = new JPanel();
+            asd.setLayout(new GridBagLayout());
+            JLabel label = new JLabel("Tiada barang dalam cart");
+            label.setFont(new Font("Ariel", Font.BOLD, 30));
+            asd.add(label);
+            content.add(asd);
+        }else{   
+            for (Gambar item : CartController.getCart()) {
+                content.add(new CartBox(item));
+                
+            }
+        }
         totalPrice.setText("RM " + getCartTotal());
 
     }
