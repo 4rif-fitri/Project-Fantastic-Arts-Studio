@@ -15,16 +15,11 @@ public class Footer extends JPanel {
 		JButton btn_back = new JButton("BACK");
 		this.add(btn_back);
 
-		JButton btn_cart = new JButton("Cart");
-		this.add(btn_cart);
 
 		btn_back.addActionListener(e -> {
 			cardLayout.show(cardPanel, location);
 		});
 
-		btn_cart.addActionListener(e -> {
-			// cardLayout.show(cardPanel, location);
-		});
 
 	}
 }

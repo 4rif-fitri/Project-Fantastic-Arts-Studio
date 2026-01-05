@@ -43,8 +43,9 @@ public class Home extends JPanel {
 
 		// pic dlm panel center kanan
 		JLabel label = new JLabel();
-		label.setIcon(new ImageIcon(getClass().getResource("../img/p1.png")));
-		label.setText("");
+		label.setIcon(new ImageIcon(getClass().getResource("../img/homepageArt.png")));
+		//label.setPreferredSize(new Dimension(300, 300));
+		// label.setText("");
 		panelCenter.add(label);
 		
 		//Text dlm panel center kiri
