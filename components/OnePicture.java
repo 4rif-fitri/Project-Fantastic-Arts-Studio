@@ -32,7 +32,7 @@ public class OnePicture extends JButton {
 		// pnl.add(addToCart);
 
 		this.addActionListener(e->{
-			new Single(item, "../img/3.png");
+			new Single(item);
 
 		});
 		this.add(pnl,BorderLayout.SOUTH);

@@ -1,5 +1,6 @@
 package components;
 
+import controllers.CartController;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,31 +14,32 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
-import models.Gambar;
+import models.*;
 
 public class Single extends JFrame {
-	public final static int width = 960 * 8 / 10;
-	public final static int height = 540 * 8 / 10;
-	public final static int gW = width * 3/10;
-	public final static int gH = gW * 6/4;
-	public Single(Gambar item, String src) { //get the url from img folder
+	public final static int W = GlobalData.W * 8/10;
+	public final static int H = GlobalData.H * 8/10;
+	public final static int WGAM = W * 3/10;
+	public final static int HGAM = WGAM * 6/4;
+	
+	public Single(Gambar item) { //get the url from img folder
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		//this.setLayout(new GridLayout(1, 2));
-		this.setSize(width, height);
+		this.setSize(W, H);
 		this.setLocationRelativeTo(null);
 
 
 
 		JPanel panelGambar = new JPanel();
-		panelGambar.setPreferredSize(new Dimension(width * 4/10, 0));
+		panelGambar.setPreferredSize(new Dimension(W * 4/10, 0));
 		panelGambar.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		panelGambar.setBackground(Color.decode("#b02323"));
 
-		JLabel gambar = new JLabel();
-		gambar.setIcon(new ImageIcon(getClass().getResource(src)));
+		JButton gambar = new JButton();
+		gambar.setIcon(new ImageIcon(getClass().getResource(item.getUrl())));
 		//label.setText("pizza");
-		gambar.setPreferredSize(new Dimension(gW, gH));
+		gambar.setPreferredSize(new Dimension(WGAM, HGAM));
 		gambar.setBorder(new LineBorder(Color.decode("#ffbf00"), 10));
 		panelGambar.add(gambar);
 		//this.add(label);
@@ -62,7 +64,7 @@ public class Single extends JFrame {
 					"But this..this is masterpiece. This is truly out of this " + 
 					"world. No camparison. Lets add more line to do some experiments"
 				);
-				desc.setPreferredSize(new Dimension(width * 6/10, height));
+				desc.setPreferredSize(new Dimension(W * 6/10, H));
 				desc.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 				//desc.setBackground(Color.decode("#eeeeee"));
 				desc.setEditable(false);
@@ -74,6 +76,11 @@ public class Single extends JFrame {
 			panel3.setLayout(new GridLayout(1, 2));
 				JLabel price = new JLabel("RM " + item.getPrice());
 				JButton addToCart = new JButton("Add To Cart");
+				addToCart.addActionListener(e->{
+					// tambah validation sikit
+					item.setCart(true);
+					CartController.addToCart(item);
+				});
 			panel3.add(price);
 			panel3.add(addToCart);
 

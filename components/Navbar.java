@@ -7,6 +7,7 @@ import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import models.GlobalData;
 
 public class Navbar extends JPanel {
 	public Navbar(CardLayout cardLayout, JPanel cardPanel) {
@@ -28,7 +29,11 @@ public class Navbar extends JPanel {
 
 			if (e.getStateChange() == ItemEvent.SELECTED) {
 				String key = (String) e.getItem();
-				// System.out.println(key);
+				switch (key){
+					case "CART": GlobalData.refreshCart(); break;
+					case "GALLARY": GlobalData.refreshGallaryAll(); break;
+				}
+
 				cardLayout.show(cardPanel, key);
 				nav.setSelectedIndex(0);
 			}

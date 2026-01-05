@@ -57,7 +57,7 @@ public class PicturesByCategory extends JPanel {
 	public void loadSelectedCategory(String selectedCat){
 		clearIni();
 		for (Gambar item : data.getArtByCat(selectedCat)){
-			content.add(new OnePicture(item));
+			if (!item.isCart()) content.add(new OnePicture(item));
 		}
 		
 		// if (selectedCat.equals("Painting")) {
