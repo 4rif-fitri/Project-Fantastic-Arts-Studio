@@ -17,6 +17,7 @@ import javax.swing.border.LineBorder;
 import models.*;
 
 public class Single extends JFrame {
+ 	private GlobalData GD;
 	public final static int W = GlobalData.W * 8/10;
 	public final static int H = GlobalData.H * 8/10;
 	public final static int WGAM = W * 3/10;
@@ -80,6 +81,7 @@ public class Single extends JFrame {
 					// tambah validation sikit
 					item.setCart(true);
 					CartController.addToCart(item);
+					GD.refreshGallaryAll();
 				});
 			panel3.add(price);
 			panel3.add(addToCart);
