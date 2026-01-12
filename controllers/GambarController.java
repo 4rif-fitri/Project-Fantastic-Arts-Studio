@@ -15,9 +15,6 @@ public class GambarController {
 	private ArrayList<Gambar> TradArt=new ArrayList<>();
 	private ArrayList<Gambar> Sculpture=new ArrayList<>();
 
-
-	
-
 	public GambarController() {
 		// Init static data
 		All.add(new Gambar(4, "Lacquer Vat", "../img/pnt/_japan_lacquer_dipping_vat_1947.1.27.jpg", "Hokusai School", "Painting", 5000.0));
