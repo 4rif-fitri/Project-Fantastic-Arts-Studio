@@ -1,4 +1,5 @@
 import components.Navbar;
+import controllers.CartController;
 import controllers.GambarController;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -20,7 +21,9 @@ public class Main {
 	final static String GALLARY = "GALLARY";
 	final static String CATEGORY = "CATEGORY";
 	final static String SINGLE = "SINGLE";
+	final static String CART = "CART";
 	GambarController data = new GambarController();
+	CartController cart = new CartController();
 
 	public Main() {
 		frame.setVisible(true);
@@ -28,11 +31,13 @@ public class Main {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		GlobalData globalData = new GlobalData(cardLayout, cardPanel);
-		
+		globalData.updateAlamatOfControllers(cart, data);
+
 		Home home = new Home();
 		GallaryAll gallaryAll = new GallaryAll(cardLayout, cardPanel, data);
 		Category category = new Category(globalData);
 		PicturesByCategory picturesByCategory = new PicturesByCategory(data, globalData);
+		CartPage cartPage = new CartPage(globalData);
 
 		globalData.updateAlamatOfPages(home, gallaryAll, category, picturesByCategory);
 		
@@ -41,6 +46,7 @@ public class Main {
 		cardPanel.add(gallaryAll, GALLARY);
 		cardPanel.add(category, CATEGORY);
 		cardPanel.add(picturesByCategory, SINGLE);
+		cardPanel.add(cartPage, CART);
 
 		cardLayout.show(cardPanel, HOME); //SHOW PANEL FUNC <===
 

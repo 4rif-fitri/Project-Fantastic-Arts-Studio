@@ -1,12 +1,15 @@
 package components;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class NavbarCatagory extends JPanel {
 	public NavbarCatagory(CardLayout cardLayout, JPanel cardPanel) {
+		this.setBackground(Color.decode("#b02323"));
+		
 		JButton btn_all = new JButton("ALL");
 		JButton btn_category = new JButton("CATEGORY");
 

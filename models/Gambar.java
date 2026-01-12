@@ -6,6 +6,7 @@ public class Gambar  {
 	private String url;
 	private String catagory;
 	private String artisName;
+	private boolean isCart = false;
 
 	public Gambar(int id,String name, String url, String artisName, String catagory, double price){
 		this.name = name;
@@ -40,7 +41,11 @@ public class Gambar  {
 		return url;
 	}
 
-
+	public boolean isCart() {
+		return isCart;
+	}
 	
-
+	public void setCart(boolean b) {
+		isCart = b;
+	}
 }

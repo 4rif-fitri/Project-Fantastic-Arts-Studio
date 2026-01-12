@@ -1,16 +1,25 @@
 package models;
+import controllers.CartController;
+import controllers.GambarController;
 import java.awt.CardLayout;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URLEncoder;
 import javax.swing.JPanel;
 import pages.*;
-
 public class GlobalData {
-    private CartPage cartPage;
-    private Category category;
-    private GallaryAll gallaryAll;
-    private Home home;
-    private PicturesByCategory picturesByCategory;
-    public CardLayout cardLayout;
-    public JPanel cardPanel;
+    public final static int W = 960;
+    public final static int H = 540;
+    
+    public static CartController cartController;
+    public static GambarController gambarController;
+    public static CartPage cartPage;
+    public static Category category;
+    public static GallaryAll gallaryAll;
+    public static Home home;
+    public static PicturesByCategory picturesByCategory;
+    public static CardLayout cardLayout;
+    public static JPanel cardPanel;
     
     public String[] categories = {"Painting", "Drawing", "Sculpture", "Digital Art", "Photography", "Abstract Art", "Traditional Art", "NFT Art", "Pop Art"};
 
@@ -24,9 +33,53 @@ public class GlobalData {
         this.gallaryAll = gallaryAll;
         this.category = category;
         this.picturesByCategory = byCategroy;
+        this.gallaryAll = all;
     }
 
     public void sendSelectedCategory(String selectedCategory){
-        picturesByCategory.loadSelectedCategory(selectedCategory);
+        picturesByCategory.setCategory(selectedCategory);
+        picturesByCategory.loadCategoryPage();
+    }
+
+    public static void sendToCart(Gambar gambar){
+        CartController.addToCart(gambar);
+    }
+
+    public static void removeFromCart(Gambar gambar) {
+        CartController.removeFromCart(gambar);
+    }
+
+    public static void refreshCart(){
+        CartPage.loadCartPage();
+    }
+
+    public static void refreshGallaryAll(){
+        gallaryAll.loadGallaryPage();
+        System.out.println("refreshing gallaryall");
+    }
+
+    public static void refreshGallary(){
+        gallaryAll.loadGallaryPage();
+        System.out.println("refreshing gallaryall");
+        picturesByCategory.loadCategoryPage();
+        System.out.println("refreshing categroe");
+    }
+
+    public static void sendWhatsApp(String text) {
+        try {
+            String phone = "60197231577";
+            // Tambah \n selepas ayat pembuka
+            String msg = "Hai saya nak order Art ini:\n" + text;
+
+            // URLEncoder akan menukar \n menjadi %0A
+            // .replace("+", "%20") digunakan supaya jarak (space) nampak lebih kemas
+            String encodedMsg = URLEncoder.encode(msg, "UTF-8").replace("+", "%20");
+
+            String link = "https://wa.me/" + phone + "?text=" + encodedMsg;
+
+            Desktop.getDesktop().browse(new URI(link));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
