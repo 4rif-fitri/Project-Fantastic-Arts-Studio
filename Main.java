@@ -12,8 +12,8 @@ import pages.*;
 //main mian main main
 public class Main {
 
-	public JFrame frame = new JFrame();
-
+	public JFrame frame = new JFrame("Fantastic 5 Studio");
+	
 	private CardLayout cardLayout = new CardLayout();
 	private JPanel cardPanel = new JPanel(cardLayout);
 
@@ -27,7 +27,7 @@ public class Main {
 
 	public Main() {
 		frame.setVisible(true);
-		frame.setSize(900, 600);
+		frame.setSize(960, 540);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		GlobalData globalData = new GlobalData(cardLayout, cardPanel);
@@ -39,18 +39,18 @@ public class Main {
 		PicturesByCategory picturesByCategory = new PicturesByCategory(data, globalData);
 		CartPage cartPage = new CartPage(globalData);
 
-		globalData.updateAlamatOfPages(category, gallaryAll, picturesByCategory);
-
-		// panel , Key
+		globalData.updateAlamatOfPages(home, gallaryAll, category, picturesByCategory);
+		
+						//    panel , Key
 		cardPanel.add(home, HOME); // add page home
 		cardPanel.add(gallaryAll, GALLARY);
 		cardPanel.add(category, CATEGORY);
 		cardPanel.add(picturesByCategory, SINGLE);
 		cardPanel.add(cartPage, CART);
 
-		cardLayout.show(cardPanel, HOME); // SHOW PANEL FUNC <===
+		cardLayout.show(cardPanel, HOME); //SHOW PANEL FUNC <===
 
-		// layout setting
+		//layout setting
 		frame.getContentPane().add(new Navbar(cardLayout, cardPanel), BorderLayout.NORTH);
 		frame.getContentPane().add(cardPanel, BorderLayout.CENTER);
 		frame.setLocationRelativeTo(null);
