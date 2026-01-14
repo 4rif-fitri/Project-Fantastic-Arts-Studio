@@ -58,5 +58,6 @@ public class PicturesByCategory extends JPanel {
 			if (!item.isCart()) content.add(new OnePicture(item));
 		}
 		content.revalidate();
+		content.repaint();
 	}
 }
