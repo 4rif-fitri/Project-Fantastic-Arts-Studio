@@ -12,7 +12,7 @@ import pages.*;
 //main mian main main
 public class Main {
 
-	public JFrame frame = new JFrame();
+	public JFrame frame = new JFrame("Fantastic 5 Studio");
 	
 	private CardLayout cardLayout = new CardLayout();
 	private JPanel cardPanel = new JPanel(cardLayout);
@@ -27,7 +27,7 @@ public class Main {
 
 	public Main() {
 		frame.setVisible(true);
-		frame.setSize(900, 600);
+		frame.setSize(960, 540);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		GlobalData globalData = new GlobalData(cardLayout, cardPanel);
