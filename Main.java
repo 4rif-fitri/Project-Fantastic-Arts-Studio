@@ -39,7 +39,7 @@ public class Main {
 		PicturesByCategory picturesByCategory = new PicturesByCategory(data, globalData);
 		CartPage cartPage = new CartPage(globalData);
 
-		globalData.updateAlamatOfPages(category, gallaryAll, picturesByCategory);
+		globalData.updateAlamatOfPages(home, gallaryAll, category, picturesByCategory);
 		
 						//    panel , Key
 		cardPanel.add(home, HOME); // add page home
