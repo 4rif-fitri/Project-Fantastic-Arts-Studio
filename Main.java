@@ -41,7 +41,7 @@ public class Main {
 
 		globalData.updateAlamatOfPages(category, gallaryAll, picturesByCategory);
 		
-						//    panel , Key
+					//panel , Key
 		cardPanel.add(home, HOME); // add page home
 		cardPanel.add(gallaryAll, GALLARY);
 		cardPanel.add(category, CATEGORY);

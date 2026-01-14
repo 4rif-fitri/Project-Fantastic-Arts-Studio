@@ -31,17 +31,14 @@ public class CartPage extends JPanel {
             this.setPreferredSize(new Dimension(GD.W, GD.H));
             this.setLayout(new BorderLayout());
 
-                
+                //content panel letak semua box cart dalam ni
                 content.setBackground(Color.white);
                 content.setLayout(new GridLayout(0, 1, GAP, GAP));
                 content.setBorder(BorderFactory.createEmptyBorder(GAP, GAP, GAP, GAP));
-                //content.setBorder(BorderFactory.);
-
-                    
-                
                 JScrollPane scroll_container = new JScrollPane(content);
                 scroll_container.getVerticalScrollBar().setUnitIncrement(20);
 
+                //panel checkout kat bahagian paling bawah ade total dan button checkout
                 JPanel panelCheckOut = new JPanel();
                 panelCheckOut.setBackground(Color.decode("#b02323"));
                 panelCheckOut.setPreferredSize(new Dimension(GD.W, 50));
