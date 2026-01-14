@@ -28,9 +28,11 @@ public class GlobalData {
         this.cardPanel = cardPanel;
     }
 
-    public void updateAlamatOfPages(Home home, GallaryAll gallaryAll, Category category, PicturesByCategory byCategroy){
-        this.home = home;
-        this.gallaryAll = gallaryAll;
+    public void updateAlamatOfControllers(CartController cartCont, GambarController gambarCont){
+        cartController = cartCont;
+        gambarController = gambarCont;
+    }
+    public void updateAlamatOfPages(Category category, GallaryAll all, PicturesByCategory byCategroy){
         this.category = category;
         this.picturesByCategory = byCategroy;
         this.gallaryAll = all;
